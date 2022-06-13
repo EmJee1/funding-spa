@@ -40,7 +40,10 @@ app.post('/create', async (req, res) => {
     amount: parsedAmount,
     status: PaymentStatus.open,
     paymentId: payment.id,
-    forParticipant,
+  }
+
+  if (forParticipant) {
+    donationRecord.forParticipant = forParticipant
   }
 
   await admin.firestore().collection('donations').add(donationRecord)

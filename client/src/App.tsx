@@ -4,7 +4,7 @@ import Donate from "./components/Donate"
 const App = () => {
   return (
     <Container>
-      <Row>
+      <Row className="mb-5">
         <Col>
           <h1>JV Sponsorloop</h1>
         </Col>

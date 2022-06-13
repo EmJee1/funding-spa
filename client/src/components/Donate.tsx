@@ -46,7 +46,7 @@ const Donate = () => {
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group>
+          <Form.Group className="mb-3">
             <ParticipantSelector
               participant={forParticipant}
               setParticipant={setForParticipant}
