@@ -38,7 +38,9 @@ const ParticipantSelector = ({
       <Form.Select value={participant} onChange={onParticipantChange}>
         <option value="-">Algemene donatie</option>
         {participants.map(p => (
-          <option value={p}>{p}</option>
+          <option key={p} value={p}>
+            {p}
+          </option>
         ))}
       </Form.Select>
     </>

@@ -10,8 +10,10 @@ app.use(cors({ origin: true }))
 app.post('/create', async (req, res) => {
   const { amount, forParticipant } = req.body
 
-  if (!amount || !forParticipant) {
-    return res.status(400).json({ error: 'Invalid data' })
+  if (!amount) {
+    return res.status(400).json({
+      error: 'No amount',
+    })
   }
 
   const payment = await mollieClient.payments.create({
@@ -27,8 +29,7 @@ app.post('/create', async (req, res) => {
   })
 
   return res.json({
-    payment: payment.id,
-    config: functions.config(),
+    checkout: payment._links.checkout?.href,
   })
 })
 
