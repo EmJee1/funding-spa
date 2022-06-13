@@ -29,5 +29,6 @@ module.exports = {
     quotes: ['error', 'single'],
     'quote-props': ['error', 'as-needed'],
     'import/no-named-as-default': 0,
+    indent: ['error', 2],
   },
 }
