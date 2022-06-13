@@ -1,5 +1,6 @@
-import createMollieClient from "@mollie/api-client"
+import createMollieClient from '@mollie/api-client'
+import * as functions from 'firebase-functions'
 
-const mollieClient = createMollieClient({ apiKey: process.env.MOLLIE_API_KEY! })
+const apiKey = functions.config().mollie.api_key
 
-export default mollieClient
+export default createMollieClient({ apiKey })
