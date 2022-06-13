@@ -21,7 +21,7 @@ const Donate = () => {
       .replaceAll(".", ",")
       .replaceAll("X", ".")
     const { data } = await axios.post(
-      "http://localhost:5001/jv-sponsorloop/us-central1/payments/create",
+      "https://us-central1-jv-sponsorloop.cloudfunctions.net/payments/create",
       { amount: parsedAmount, forParticipant }
     )
     window.open(data.checkout, "_self")

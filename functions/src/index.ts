@@ -33,7 +33,7 @@ app.post('/create', async (req, res) => {
     },
     redirectUrl: 'https://jv-sponsorloop.web.app/done',
     webhookUrl:
-      'https://2de7-87-208-123-92.ngrok.io/jv-sponsorloop/us-central1/payments/webhook',
+      'https://us-central1-jv-sponsorloop.cloudfunctions.net/payments/webhook',
   })
 
   const donationRecord: Donation = {
