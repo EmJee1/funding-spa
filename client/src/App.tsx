@@ -11,7 +11,7 @@ const App = () => {
     <>
       <BackgroundImage />
       <Container>
-        <Row className="mb-5">
+        <Row className="my-5">
           <Col>
             <h1>JV Sponsorloop</h1>
           </Col>
