@@ -26,13 +26,19 @@ const DonationCount = () => {
 
   return (
     <div>
-      <CountUp
-        duration={1.2}
-        end={amount}
-        prefix="&euro;"
-        decimals={2}
-        decimal=","
-      />
+      <h3>
+        We hebben al
+        <CountUp
+          style={{ color: "#0d6efd" }}
+          duration={1.2}
+          end={amount}
+          prefix=" &euro;"
+          suffix=" "
+          decimals={2}
+          decimal=","
+        />
+        opgehaald
+      </h3>
     </div>
   )
 }

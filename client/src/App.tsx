@@ -10,14 +10,14 @@ const App = () => {
           <h1>JV Sponsorloop</h1>
         </Col>
       </Row>
-      <Row>
+      <Row className="mb-5">
         <Col>
-          <Donate />
+          <DonationCount />
         </Col>
       </Row>
       <Row>
         <Col>
-          <DonationCount />
+          <Donate />
         </Col>
       </Row>
     </Container>
