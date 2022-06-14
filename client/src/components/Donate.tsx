@@ -29,10 +29,10 @@ const Donate = () => {
   }
 
   return (
-    <Form onSubmit={makeDonation}>
+    <Form className="donate-form" onSubmit={makeDonation}>
       <Row>
         <Col sm={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3 mb-md-0">
             <Form.Label>Hoeveel wilt u doneren?</Form.Label>
             <CurrencyInput
               className="form-control"
@@ -46,7 +46,7 @@ const Donate = () => {
           </Form.Group>
         </Col>
         <Col sm={4}>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3 mb-md-0">
             <ParticipantSelector
               participant={forParticipant}
               setParticipant={setForParticipant}
@@ -54,7 +54,7 @@ const Donate = () => {
           </Form.Group>
         </Col>
         <Col sm={4}>
-          <Form.Group>
+          <Form.Group className="mb-3 mb-md-0">
             <Button disabled={loading} type="submit">
               {loading && (
                 <Spinner

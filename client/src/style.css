@@ -39,3 +39,17 @@ label {
   top: 0;
   background: rgba(0, 0, 0, 0.4);
 }
+
+.donate-form {
+  background: #fff;
+  padding: 1.2rem 1rem;
+  border-radius: 7px;
+}
+
+.donate-form label {
+  color: #212529;
+}
+
+.donate-form .col-sm-4:last-of-type {
+  align-self: flex-end;
+}
