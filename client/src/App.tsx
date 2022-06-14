@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap"
 import Donate from "./components/Donate"
+import DonationCount from "./components/DonationCount"
 
 const App = () => {
   return (
@@ -12,6 +13,11 @@ const App = () => {
       <Row>
         <Col>
           <Donate />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <DonationCount />
         </Col>
       </Row>
     </Container>
