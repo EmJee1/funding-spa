@@ -53,3 +53,24 @@ label {
 .donate-form .col-sm-4:last-of-type {
   align-self: flex-end;
 }
+
+.info-block {
+  padding: 1.2rem 1rem;
+  backdrop-filter: blur(6px);
+  border-radius: 7px;
+}
+
+.info-block-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.info-block-image {
+  max-height: 300px;
+}
+
+.info-block-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
