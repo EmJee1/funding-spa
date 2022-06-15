@@ -6,7 +6,6 @@ import Container from "react-bootstrap/Container"
 import Donate from "./components/Donate"
 import DonationCount from "./components/DonationCount"
 import BackgroundImage from "./components/BackgroundImage"
-import wellImage from "./assets/well.webp"
 import { collection, query, where, onSnapshot } from "firebase/firestore"
 import { Donation, firestore } from "./firebase"
 
@@ -29,6 +28,9 @@ const App = () => {
 
     void fetchDonations()
   }, [])
+
+  const wellImageUrl =
+    "https://firebasestorage.googleapis.com/v0/b/jv-sponsorloop.appspot.com/o/well.jpg?alt=media"
 
   return (
     <>
@@ -53,7 +55,7 @@ const App = () => {
           <Col className="info-block-image-container" xl={6}>
             <Image
               className="info-block-image"
-              src={wellImage}
+              src={wellImageUrl}
               alt="kind aan een waterpomp"
             />
           </Col>
