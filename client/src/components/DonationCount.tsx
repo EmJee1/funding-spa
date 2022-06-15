@@ -17,7 +17,6 @@ const DonationCount = () => {
         },
         0
       )
-      console.log(donated)
       setAmount(donated)
     }
 
