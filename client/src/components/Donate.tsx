@@ -1,5 +1,5 @@
 import axios from "axios"
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Form from "react-bootstrap/Form"
@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button"
 import Spinner from "react-bootstrap/Spinner"
 import CurrencyInput from "react-currency-input-field"
 import ParticipantSelector, { Participant } from "./ParticipantSelector"
+import ThankYouMessage from "./ThankYouMessage"
 import TopParticipants from "./TopParticipants"
 
 const Donate = () => {
@@ -15,6 +16,7 @@ const Donate = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [amount, setAmount] = useState("10,00")
+  const [isDone, setIsDone] = useState(false)
 
   const makeDonation = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -37,6 +39,8 @@ const Donate = () => {
     setLoading(false)
   }
 
+  useEffect(() => setIsDone(window.location.href.includes("/done")), [])
+
   return (
     <Form className="donate-form" onSubmit={makeDonation}>
       {error && (
@@ -49,6 +53,13 @@ const Donate = () => {
                 mart-janroeleveld@outlook.com
               </Alert.Link>
             </Alert>
+          </Col>
+        </Row>
+      )}
+      {isDone && (
+        <Row>
+          <Col>
+            <ThankYouMessage />
           </Col>
         </Row>
       )}
