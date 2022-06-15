@@ -21,7 +21,6 @@ const Donate = ({ donations }: DonateProps) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [amount, setAmount] = useState("10,00")
-  const [isDone, setIsDone] = useState(false)
 
   const makeDonation = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -43,8 +42,6 @@ const Donate = ({ donations }: DonateProps) => {
     }
     setLoading(false)
   }
-
-  useEffect(() => setIsDone(window.location.href.includes("/done")), [])
 
   return (
     <Form className="donate-form" onSubmit={makeDonation}>
