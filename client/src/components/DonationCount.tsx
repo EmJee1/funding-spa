@@ -29,7 +29,7 @@ const DonationCount = () => {
       <h3>
         We hebben al
         <CountUp
-          style={{ color: "#0d6efd" }}
+          className="blue"
           duration={1.2}
           end={amount}
           prefix=" &euro;"

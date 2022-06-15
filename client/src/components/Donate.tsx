@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button"
 import Spinner from "react-bootstrap/Spinner"
 import CurrencyInput from "react-currency-input-field"
 import ParticipantSelector, { Participant } from "./ParticipantSelector"
+import TopParticipants from "./TopParticipants"
 
 const Donate = () => {
   const [forParticipant, setForParticipant] = useState<Participant>()
@@ -52,8 +53,8 @@ const Donate = () => {
         </Row>
       )}
       <Row>
-        <Col sm={4}>
-          <Form.Group className="mb-3 mb-md-0">
+        <Col xs={12} xl={6}>
+          <Form.Group className="mb-3">
             <Form.Label>Hoeveel wilt u doneren?</Form.Label>
             <CurrencyInput
               className="form-control"
@@ -65,17 +66,13 @@ const Donate = () => {
               intlConfig={{ locale: "nl-NL", currency: "EUR" }}
             />
           </Form.Group>
-        </Col>
-        <Col sm={4}>
-          <Form.Group className="mb-3 mb-md-0">
+          <Form.Group className="mb-3">
             <ParticipantSelector
               participant={forParticipant}
               setParticipant={setForParticipant}
             />
           </Form.Group>
-        </Col>
-        <Col sm={4}>
-          <Form.Group className="mb-3 mb-md-0">
+          <Form.Group className="mb-3 mb-xl-0">
             <Button disabled={loading} type="submit">
               {loading && (
                 <Spinner
@@ -90,6 +87,9 @@ const Donate = () => {
               Doneren
             </Button>
           </Form.Group>
+        </Col>
+        <Col className="top-participants" xs={12} xl={6}>
+          <TopParticipants />
         </Col>
       </Row>
     </Form>

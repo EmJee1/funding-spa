@@ -8,8 +8,25 @@ span,
 strong,
 p,
 blockquote,
+strong,
 label {
   color: #fff;
+}
+
+:is(h1, h2, h3, h4, h5, h6, span, strong, p, blockquote, strong, label).black {
+  color: #212529;
+}
+
+:is(h1, h2, h3, h4, h5, h6, span, strong, p, blockquote, strong, label).blue {
+  color: #0d6efd;
+}
+
+ul.ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .background {
@@ -94,6 +111,14 @@ label {
     display: flex;
     justify-content: center;
     margin-bottom: 0;
+  }
+
+  .top-participants {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 
