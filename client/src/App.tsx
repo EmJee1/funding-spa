@@ -28,14 +28,14 @@ const App = () => {
           </Col>
         </Row>
         <Row className="info-block">
-          <Col className="info-block-image-container" md={6}>
+          <Col className="info-block-image-container" xl={6}>
             <Image
               className="info-block-image"
               src={wellImage}
               alt="kind aan een waterpomp"
             />
           </Col>
-          <Col className="info-block-text" md={6}>
+          <Col className="info-block-text" xl={6}>
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
