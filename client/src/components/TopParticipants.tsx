@@ -8,7 +8,6 @@ interface TopParticipantsProps {
 
 const TopParticipants = ({ donations }: TopParticipantsProps) => {
   const topParticipants = useMemo(() => {
-    console.log("donations:", donations)
     const dict: Record<string, number> = {}
 
     donations.forEach(donation => {
@@ -22,8 +21,6 @@ const TopParticipants = ({ donations }: TopParticipantsProps) => {
         ? (dict[forParticipant] += amount)
         : (dict[forParticipant] = amount)
     })
-
-    console.log(dict)
 
     return Object.entries(dict)
       .sort(([, a], [, b]) => b - a)
