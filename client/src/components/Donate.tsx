@@ -21,6 +21,7 @@ const Donate = ({ donations }: DonateProps) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [amount, setAmount] = useState("10,00")
+  const [name, setName] = useState("")
 
   const makeDonation = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -33,7 +34,7 @@ const Donate = ({ donations }: DonateProps) => {
     try {
       const { data } = await axios.post(
         "https://us-central1-jv-sponsorloop.cloudfunctions.net/payments/create",
-        { amount: parsedAmount, forParticipant }
+        { amount: parsedAmount, forParticipant, name: name || undefined }
       )
       window.open(data.checkout, "_self")
     } catch (err) {
@@ -71,6 +72,13 @@ const Donate = ({ donations }: DonateProps) => {
               allowNegativeValue={false}
               onValueChange={(value: string) => setAmount(value)}
               intlConfig={{ locale: "nl-NL", currency: "EUR" }}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Uw naam (optioneel)</Form.Label>
+            <Form.Control
+              value={name}
+              onChange={e => setName(e.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3">

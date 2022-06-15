@@ -12,13 +12,19 @@ const app = express()
 app.use(cors({ origin: true }))
 
 app.post('/create', async (req, res) => {
-  const { amount, forParticipant } = req.body
+  const { amount, forParticipant, name } = req.body
 
   const parsedAmount = Number(amount)
 
   if (isNaN(parsedAmount)) {
     return res.status(400).json({
       error: 'No amount',
+    })
+  }
+
+  if (!!name && typeof name !== 'string') {
+    return res.status(400).json({
+      error: 'The value of "name" should be undefined or a string',
     })
   }
 
@@ -44,6 +50,10 @@ app.post('/create', async (req, res) => {
 
   if (forParticipant) {
     donationRecord.forParticipant = forParticipant
+  }
+
+  if (name) {
+    donationRecord.name = name
   }
 
   await admin.firestore().collection('donations').add(donationRecord)

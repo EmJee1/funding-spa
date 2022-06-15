@@ -17,6 +17,7 @@ export const firestore = getFirestore()
 export interface Donation {
   amount: number
   forParticipant?: string
+  name?: string
   status: string
   paymentId: string
 }
