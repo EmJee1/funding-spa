@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import Image from "react-bootstrap/Image"
@@ -6,8 +7,27 @@ import Donate from "./components/Donate"
 import DonationCount from "./components/DonationCount"
 import BackgroundImage from "./components/BackgroundImage"
 import wellImage from "./assets/well.webp"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { Donation, firestore } from "./firebase"
 
 const App = () => {
+  const [donations, setDonations] = useState<Donation[]>([])
+
+  useEffect(() => {
+    const fetchDonations = async () => {
+      const collectionRef = collection(firestore, "donations")
+      const statusQuery = where("status", "==", "paid")
+      const snapshots = await getDocs(query(collectionRef, statusQuery))
+      const donations = snapshots.docs.map(donation => ({
+        id: donation.id,
+        ...donation.data(),
+      })) as unknown[] as Donation[]
+      setDonations(donations)
+    }
+
+    fetchDonations()
+  }, [])
+
   return (
     <>
       <BackgroundImage />
@@ -19,12 +39,12 @@ const App = () => {
         </Row>
         <Row className="mb-5">
           <Col>
-            <DonationCount />
+            <DonationCount donations={donations} />
           </Col>
         </Row>
         <Row className="mb-5">
           <Col>
-            <Donate />
+            <Donate donations={donations} />
           </Col>
         </Row>
         <Row className="info-block">

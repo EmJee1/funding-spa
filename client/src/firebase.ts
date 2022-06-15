@@ -13,3 +13,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 export const firestore = getFirestore()
+
+export interface Donation {
+  amount: number
+  forParticipant?: string
+  status: string
+  paymentId: string
+}
+
+export type DonationDocument = Donation & { id: string }

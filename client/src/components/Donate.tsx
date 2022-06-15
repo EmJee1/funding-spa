@@ -10,8 +10,13 @@ import CurrencyInput from "react-currency-input-field"
 import ParticipantSelector, { Participant } from "./ParticipantSelector"
 import ThankYouMessage from "./ThankYouMessage"
 import TopParticipants from "./TopParticipants"
+import { Donation } from "../firebase"
 
-const Donate = () => {
+interface DonateProps {
+  donations: Donation[]
+}
+
+const Donate = ({ donations }: DonateProps) => {
   const [forParticipant, setForParticipant] = useState<Participant>()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
@@ -100,7 +105,7 @@ const Donate = () => {
           </Form.Group>
         </Col>
         <Col className="top-participants" xs={12} xl={6}>
-          <TopParticipants />
+          <TopParticipants donations={donations} />
         </Col>
       </Row>
     </Form>
