@@ -7,7 +7,7 @@ import Donate from "./components/Donate"
 import DonationCount from "./components/DonationCount"
 import BackgroundImage from "./components/BackgroundImage"
 import wellImage from "./assets/well.webp"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { collection, query, where, onSnapshot } from "firebase/firestore"
 import { Donation, firestore } from "./firebase"
 
 const App = () => {
@@ -17,15 +17,17 @@ const App = () => {
     const fetchDonations = async () => {
       const collectionRef = collection(firestore, "donations")
       const statusQuery = where("status", "==", "paid")
-      const snapshots = await getDocs(query(collectionRef, statusQuery))
-      const donations = snapshots.docs.map(donation => ({
-        id: donation.id,
-        ...donation.data(),
-      })) as unknown[] as Donation[]
-      setDonations(donations)
+      onSnapshot(query(collectionRef, statusQuery), snapshot => {
+        setDonations(
+          snapshot.docs.map(donation => ({
+            id: donation.id,
+            ...donation.data(),
+          })) as unknown as Donation[]
+        )
+      })
     }
 
-    fetchDonations()
+    void fetchDonations()
   }, [])
 
   return (

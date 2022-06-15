@@ -61,13 +61,7 @@ const Donate = ({ donations }: DonateProps) => {
           </Col>
         </Row>
       )}
-      {isDone && (
-        <Row>
-          <Col>
-            <ThankYouMessage />
-          </Col>
-        </Row>
-      )}
+      <ThankYouMessage />
       <Row>
         <Col xs={12} xl={6}>
           <Form.Group className="mb-3">

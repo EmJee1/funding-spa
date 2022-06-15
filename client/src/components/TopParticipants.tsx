@@ -33,7 +33,7 @@ const TopParticipants = ({ donations }: TopParticipantsProps) => {
       <h4 className="black mb-3">Top 3</h4>
       <ul className="ul">
         {topParticipants.map(entry => (
-          <li>
+          <li key={entry.participant}>
             <strong className="black">{entry.participant}: </strong>
             <CountUp
               className="blue"
