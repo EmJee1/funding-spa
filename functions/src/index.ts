@@ -27,7 +27,7 @@ app.post('/create', async (req, res) => {
       value: amount,
       currency: 'EUR',
     },
-    description: 'Donation JV sponsor run 2022',
+    description: 'Donatie JV Sponsorloop 2022',
     metadata: {
       forParticipant,
     },
